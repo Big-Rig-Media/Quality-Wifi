@@ -25,7 +25,15 @@ const Blog = () => (
               slug
               id
               featuredImage {
+                altText
                 guid
+                imageFile {
+                  childImageSharp {
+                    fixed(width: 365, height: 208) {
+                      ...GatsbyImageSharpFixed
+                    }
+                  }
+                }
               }
             }
             pageInfo {

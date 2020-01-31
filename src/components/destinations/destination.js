@@ -13,7 +13,7 @@ const DestinationWrapper = styled.div`
 const Destination = ({ data: { title, featuredImage } }) => {
   return (
     <DestinationWrapper>
-      <img src={featuredImage.guid} />
+      <img src={featuredImage.guid} alt={title} />
       <h6>{title}</h6>
     </DestinationWrapper>
   )

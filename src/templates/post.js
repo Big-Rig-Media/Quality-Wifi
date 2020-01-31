@@ -18,6 +18,7 @@ const Post = ({
   )
 }
 
+// https://www.gatsbyjs.org/docs/page-query/#how-to-add-query-variables-to-a-page-query
 export const query = graphql`
   query GET_POST($id: ID!) {
     wpgraphql {

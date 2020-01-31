@@ -18,10 +18,8 @@ const Image = () => {
   `)
 
   return (
-    <Link>
-      <a href="/">
-        <Img src={image.file.publicURL} alt="Quality RV Resorts" />
-      </a>
+    <Link to="/">
+      <Img src={image.file.publicURL} alt="Quality RV Resorts" />
     </Link>
   )
 }

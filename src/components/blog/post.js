@@ -17,14 +17,17 @@ const Post = ({ data: { excerpt, title, slug, featuredImage } }) => {
     <>
       <Grid>
         <div>
-          <img src={featuredImage.guid} />
+          <Link to={`/blog/${slug}`}>
+            <img
+              src={featuredImage.imageFile.childImageSharp.fixed.src}
+              alt={featuredImage.altText}
+            />
+          </Link>
         </div>
         <div>
           <h3>{title}</h3>
           <div dangerouslySetInnerHTML={{ __html: excerpt }} />
-          <Link to={`/blog/${slug}`}>
-            <a href={`/blog/${slug}`}>Read More</a>
-          </Link>
+          <Link to={`/blog/${slug}`}>Read More</Link>
         </div>
       </Grid>
     </>
