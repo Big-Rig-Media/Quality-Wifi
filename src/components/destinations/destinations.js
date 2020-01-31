@@ -34,6 +34,9 @@ const Destinations = () => (
             nodes {
               title
               id
+              featuredImage {
+                guid
+              }
             }
           }
         }

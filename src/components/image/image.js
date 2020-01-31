@@ -1,5 +1,11 @@
 import React from "react"
+import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
+
+const Img = styled.img`
+  margin-bottom: 0;
+`
 
 const Image = () => {
   const image = useStaticQuery(graphql`
@@ -11,7 +17,13 @@ const Image = () => {
     }
   `)
 
-  return <img src={image.file.publicURL} alt="Quality RV Resorts" />
+  return (
+    <Link>
+      <a href="/">
+        <Img src={image.file.publicURL} alt="Quality RV Resorts" />
+      </a>
+    </Link>
+  )
 }
 
 export default Image

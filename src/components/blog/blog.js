@@ -12,6 +12,7 @@ const H6 = styled.h6`
   text-align: center;
 `
 
+// TODO Need to download the external images locally with something like https://github.com/graysonhicks/gatsby-plugin-remote-images
 const Blog = () => (
   <StaticQuery
     query={graphql`
@@ -24,7 +25,7 @@ const Blog = () => (
               slug
               id
               featuredImage {
-                sourceUrl
+                guid
               }
             }
             pageInfo {
