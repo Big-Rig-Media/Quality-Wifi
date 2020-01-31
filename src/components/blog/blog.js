@@ -1,32 +1,59 @@
 import React from "react"
+import styled from "styled-components"
+import { StaticQuery, graphql } from "gatsby"
 import Section from "../section/section"
-import { graphql } from "gatsby"
+import Post from "./post"
 
-const Blog = () => {
-  return (
-    <>
-      <Section>
-        <h3>Quality Resorts Blog</h3>
-        <h6>
-          Stay up to date with the latest RV tips and tricks, area events and
-          all of our events happenings!
-        </h6>
-      </Section>
-    </>
-  )
-}
+const H3 = styled.h3`
+  text-align: center;
+`
 
-export const posts = graphql`
-  query GET_POSTS {
-    wpgraphql {
-      posts {
-        nodes {
-          title
-          excerpt
+const H6 = styled.h6`
+  text-align: center;
+`
+
+const Blog = () => (
+  <StaticQuery
+    query={graphql`
+      query GET_POSTS {
+        wpgraphql {
+          posts(first: 3) {
+            nodes {
+              excerpt
+              title
+              slug
+              id
+              featuredImage {
+                sourceUrl
+              }
+            }
+            pageInfo {
+              hasNextPage
+              hasPreviousPage
+            }
+          }
         }
       }
-    }
-  }
-`
+    `}
+    render={({
+      wpgraphql: {
+        posts: { nodes },
+      },
+    }) => {
+      return (
+        <>
+          <Section>
+            <H3>Quality Resorts Blog</H3>
+            <H6>
+              Stay up to date with the latest RV tips and tricks, area events
+              and all of our events happenings!
+            </H6>
+            {nodes && nodes.map(post => <Post data={post} key={post.id} />)}
+          </Section>
+        </>
+      )
+    }}
+  />
+)
 
 export default Blog

@@ -4,6 +4,12 @@ import styled from "styled-components"
 const SectionWrapper = styled.section`
   padding-top: 30px;
   padding-bottom: 30px;
+  background-color: ${props => props.backgroundColor};
+
+  @media (min-width: 1024px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 `
 
 const Container = styled.div`
@@ -15,9 +21,9 @@ const Container = styled.div`
   padding-right: 15px;
 `
 
-const Section = ({ children }) => {
+const Section = ({ backgroundColor, children }) => {
   return (
-    <SectionWrapper>
+    <SectionWrapper backgroundColor={backgroundColor}>
       <Container>{children}</Container>
     </SectionWrapper>
   )
