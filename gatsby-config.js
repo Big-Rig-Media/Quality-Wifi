@@ -5,6 +5,14 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `WPGraphQL`,
+        fieldName: `wpgraphql`,
+        url: `https://www.qualityrvresorts.com/wp/graphql/`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
